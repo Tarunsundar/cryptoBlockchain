@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0
+pragma solidity ^0.8.0;
 
 contract Transaction{
 	struct Details {
@@ -33,28 +33,28 @@ contract Transaction{
          msg.sender.transfer(msg.value - _amount);
    }
    
-   function emptyBlockchain(tDetails) public returns oDetails{
-     oDetails.transactionDetails = tDetails;
-	 oDetails.currentHash = sha256(abi.encodePacked(Details));
+   function emptyBlockchain(tDetails transacDetails) public returns oDetails{
+     oDetails.transactionDetails = transacDetails;
+	 oDetails.currentHash = sha256(abi.encodePacked(transacDetails));
 	 oDetails.previousHash = 0;  //genisis block
      returns oDetails
    }
  
-   function nonEmptyBlockchain(tDetails) public returns oDetails{
-     oDetails.transactionDetails = tDetails;
-	 oDetails.currentHash = sha256(abi.encodePacked(Details));
+   function nonEmptyBlockchain(tDetails transacDetails) public returns oDetails{
+     oDetails.transactionDetails = transacDetails;
+	 oDetails.currentHash = sha256(abi.encodePacked(transacDetails));
 	 oDetails.previousHash = blockChain[blockChain.length-1];  //previous block
      returns oDetails;
    }
    
-	function insertTransaction(tDetails) public returns blockChain{
+	function insertTransaction(tDetails transacDetails) public returns blockChain{
 	  (bool success,) = address(oDetails.tDetails.recieverAcc).call(abi.encodeWithSignature("nonExistingFunction()"));
       require(success);
-	  costs(tDetails.tAmount);
+	  costs(transacDetails.tAmount);
 	  if(blockChain.length == 0){
-	    blockChain.oDetails = emptyBlockchain(tDetails);
+	    blockChain.push(emptyBlockchain(transacDetails));
 	  } else {
-	    blockChain.oDetails = nonEmptyBlockchain(tDetails);
+	    blockChain.push(nonEmptyBlockchain(transacDetails));
       }
 	  returns blockChain;
 	}
