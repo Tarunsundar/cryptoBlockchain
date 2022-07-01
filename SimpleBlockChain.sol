@@ -47,7 +47,7 @@ contract Transaction{
      returns oDetails;
    }
    
-	function insertTransaction(tDetails transacDetails) public returns blockChain{
+	function insertTransaction(tDetails transacDetails) public returns oDetails[]{
 	  (bool success,) = address(oDetails.tDetails.recieverAcc).call(abi.encodeWithSignature("nonExistingFunction()"));
       require(success);
 	  costs(transacDetails.tAmount);
