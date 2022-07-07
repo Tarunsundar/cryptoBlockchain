@@ -28,7 +28,6 @@ contract Transaction{
    modifier costs(uint _amount) 
    {
         require(msg.value >= _amount,"Not enough Ether provided.");
-        if (msg.value > _amount)
             msg.sender.transfer(msg.value - _amount);
    }
    
